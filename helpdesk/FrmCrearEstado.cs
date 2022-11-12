@@ -49,7 +49,7 @@ namespace helpdesk
                 cboFiltro.Items.Clear();
 
                 lblTotalRegistros.Text = oListaEstado.Count.ToString();
-                //cabeceraz datatable. Deben coincider
+
                 tabla.Columns.Add("id_estado", typeof(int));
                 tabla.Columns.Add("nombre", typeof(string));
                 tabla.Columns.Add("estado", typeof(string));

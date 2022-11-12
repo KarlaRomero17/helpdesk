@@ -96,10 +96,7 @@
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(153, 20);
             this.txtFilter.TabIndex = 21;
-<<<<<<< HEAD
-=======
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
             // 
             // cboFiltro
             // 
@@ -287,11 +284,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbdatos);
             this.Name = "FrmCrearPrioridad";
-<<<<<<< HEAD
-            this.Text = "FrmCrearPrioridad";
-=======
             this.Text = "Prioridad";
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
             this.Load += new System.EventHandler(this.FrmCrearPrioridad_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

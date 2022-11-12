@@ -238,8 +238,6 @@ namespace helpdesk
                 MessageBox.Show("Selecciona un registro de la lista", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-<<<<<<< HEAD
-=======
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
@@ -247,6 +245,5 @@ namespace helpdesk
             (dgvdata.DataSource as DataTable).DefaultView.RowFilter = string.Format("[" + columnaFiltro + "] like '%{0}%'", txtFilter.Text);
 
         }
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
     }
 }

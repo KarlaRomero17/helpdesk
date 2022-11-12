@@ -113,10 +113,7 @@
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(182, 20);
             this.textBox2.TabIndex = 9;
-<<<<<<< HEAD
-=======
             this.textBox2.Text = "123";
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // textBox1
@@ -125,10 +122,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(182, 20);
             this.textBox1.TabIndex = 8;
-<<<<<<< HEAD
-=======
             this.textBox1.Text = "admin";
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
             // 
             // pictureBox1
             // 

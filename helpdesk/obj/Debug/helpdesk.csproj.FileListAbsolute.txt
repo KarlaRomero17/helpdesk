@@ -30,8 +30,6 @@ C:\Users\kromero\source\repos\PROJECT\helpdesk\helpdesk\obj\Debug\helpdesk.cspro
 C:\Users\kromero\source\repos\PROJECT\helpdesk\helpdesk\obj\Debug\helpdesk.csproj.CopyComplete
 C:\Users\kromero\source\repos\PROJECT\helpdesk\helpdesk\obj\Debug\helpdesk.exe
 C:\Users\kromero\source\repos\PROJECT\helpdesk\helpdesk\obj\Debug\helpdesk.pdb
-<<<<<<< HEAD
-=======
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.AssemblyReference.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.SuggestedBindingRedirects.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.exe
@@ -50,4 +48,3 @@ C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.Prope
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.GenerateResource.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.CoreCompileInputs.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.CopyComplete
->>>>>>> 0957c61 (prioridad,estado,categoria actualizado)
