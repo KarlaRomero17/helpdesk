@@ -103,5 +103,55 @@ namespace helpdesk.datos
             }
             return lista_permisos;
         }
+
+        public static User Info_user(int id_user)
+        {
+            User rptUsuario = new User();
+            using (SqlConnection conn = new SqlConnection(Conexion.conn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("proc_obtener_permisos", conn);
+                    cmd.Parameters.AddWithValue("id_user", id_user);//enviamos parametro
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    conn.Open();
+                    //formato xml
+                    XmlReader leer_xml = cmd.ExecuteXmlReader();
+                    while (leer_xml.Read())
+                    {
+                        //desfragmenter formato
+                        XDocument doc = XDocument.Load(leer_xml);
+                        if (doc.Element("PERMISOS") != null)
+                        {
+                            rptUsuario = (from dato in doc.Elements("PERMISOS")
+                                select new User()
+                                {
+                                    id_user = int.Parse(dato.Element("id_user").Value),
+                                    nombre = dato.Element("nombre").Value,
+                                    apellido = dato.Element("apellido").Value
+
+                                }).FirstOrDefault();
+                            rptUsuario.oRol = doc.Element("PERMISOS").Elements("DetalleRol") == null ? new Rol() : 
+                                (from dato in doc.Element("PERMISOS").Elements("DetalleRol")
+                                select new Rol()
+                                {
+                                    rol = dato.Element("rol").Value
+                                }).FirstOrDefault();
+                        }
+                        else
+                        {
+                            rptUsuario = null;
+                        }
+                    }
+                    return rptUsuario;
+                }
+                catch (Exception)
+                {
+                    rptUsuario=null;
+                    return rptUsuario;
+                }
+            }
+        }
     }
 }

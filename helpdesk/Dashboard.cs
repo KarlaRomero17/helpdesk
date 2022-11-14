@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using helpdesk.model;
 using System.IO;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace helpdesk
 {
@@ -26,6 +27,28 @@ namespace helpdesk
 
         private void Form2_Load(object sender, EventArgs e)
         {
+
+            Conf.oUsuario = D_Usuario.Info_user(idusuario);
+            StatusStrip sttStrip = new StatusStrip();
+            sttStrip.Dock = DockStyle.Top;
+            sttStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+
+            ToolStripStatusLabel tslblUsuario = new ToolStripStatusLabel("Usuario: ");
+            ToolStripStatusLabel tslblData1 = new ToolStripStatusLabel(Conf.oUsuario.nombre + " " + Conf.oUsuario.apellido);
+            tslblUsuario.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tslblUsuario.Spring = true;
+            tslblUsuario.TextAlign = ContentAlignment.MiddleRight;
+            ToolStripStatusLabel tslblTipoUsuario = new ToolStripStatusLabel("Rol: ");
+            ToolStripStatusLabel tslblData2 = new ToolStripStatusLabel(Conf.oUsuario.oRol.rol);
+            tslblTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+
+            sttStrip.Items.Add(tslblUsuario);
+            sttStrip.Items.Add(tslblData1);
+            sttStrip.Items.Add(tslblTipoUsuario);
+            sttStrip.Items.Add(tslblData2);
+            Controls.Add(sttStrip);
+
             List<model.Menu> permisos_esperados = D_Usuario.ObtenerPermisos(idusuario);
 
             MenuStrip menu_user = new MenuStrip();

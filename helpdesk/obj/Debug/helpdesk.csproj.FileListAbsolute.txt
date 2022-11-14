@@ -37,7 +37,6 @@ C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.pdb
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\helpdesk.exe.config
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\helpdesk.exe
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\helpdesk.pdb
-C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\Guna.UI2.dll
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmCrearCategoria.resources
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmCrearEstado.resources
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmCrearPrioridad.resources
@@ -47,4 +46,3 @@ C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmCr
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.Properties.Resources.resources
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.GenerateResource.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.CoreCompileInputs.cache
-C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.CopyComplete

@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conf.cs" />
     <Compile Include="datos\Connection.cs" />
     <Compile Include="datos\Conexion.cs" />
     <Compile Include="datos\D_Estado.cs" />
     <Compile Include="datos\D_Prioridad.cs" />
+    <Compile Include="datos\D_Ticket.cs" />
     <Compile Include="datos\D_Usuario.cs" />
     <Compile Include="datos\D_Categoria.cs" />
     <Compile Include="FrmCrearCategoria.cs">
@@ -98,6 +97,8 @@
     <Compile Include="model\Prioridad.cs" />
     <Compile Include="model\Rol.cs" />
     <Compile Include="model\Submenu.cs" />
+    <Compile Include="model\Ticket.cs" />
+    <Compile Include="model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="extras\ComboBoxItem.cs" />
@@ -128,7 +129,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
