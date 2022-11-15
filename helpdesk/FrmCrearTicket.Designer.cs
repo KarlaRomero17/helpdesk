@@ -84,9 +84,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(21, 22);
+            this.panel1.Location = new System.Drawing.Point(12, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 396);
+            this.panel1.Size = new System.Drawing.Size(424, 414);
             this.panel1.TabIndex = 6;
             // 
             // label4
@@ -116,7 +116,7 @@
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(20, 185);
+            this.txtdescripcion.Location = new System.Drawing.Point(20, 186);
             this.txtdescripcion.Multiline = true;
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(395, 98);
@@ -130,10 +130,11 @@
             this.btnArchivos.TabIndex = 10;
             this.btnArchivos.Text = "Choose files";
             this.btnArchivos.UseVisualStyleBackColor = true;
+            this.btnArchivos.Click += new System.EventHandler(this.btnArchivos_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(360, 435);
+            this.btnGuardar.Location = new System.Drawing.Point(333, 454);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(76, 35);
             this.btnGuardar.TabIndex = 7;
@@ -175,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 514);
+            this.ClientSize = new System.Drawing.Size(455, 514);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel1);
             this.Name = "FrmCrearTicket";

@@ -15,5 +15,8 @@ namespace helpdesk.model
         public string apellido { get; set; }
         public int idRol { get; set; }
         public Rol oRol { get; set; }
+        public string nombre_completo { get; set; }
+        public string soporte_nombre { get; set; }
+        public int id_soporte { get; set; }
     }
 }

@@ -85,7 +85,7 @@
             this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnguardar.ForeColor = System.Drawing.Color.White;
-            this.btnguardar.Location = new System.Drawing.Point(18, 3);
+            this.btnguardar.Location = new System.Drawing.Point(18, 16);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(75, 23);
             this.btnguardar.TabIndex = 37;
@@ -100,7 +100,7 @@
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(99, 3);
+            this.btnEditar.Location = new System.Drawing.Point(99, 16);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 38;

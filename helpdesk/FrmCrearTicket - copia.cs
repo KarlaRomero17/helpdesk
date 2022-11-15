@@ -15,16 +15,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using Application = System.Windows.Forms.Application;
 
 namespace helpdesk
 {
     public partial class FrmCrearTicket : Form
     {
+        int last_id = 0;
         public FrmCrearTicket()
         {
             InitializeComponent();
+            last_id = get_last_id();
+            txtid_ticket_last.Text=  last_id.ToString();
+            //MessageBox.Show(""+txtid_last);
+
         }
 
         private void FrmCrearTicket_Load(object sender, EventArgs e)
@@ -68,42 +72,54 @@ namespace helpdesk
         }
         private void button2_Click(object sender, EventArgs e)//guardar
         {
-            MessageBox.Show("Se guardo correctamente"); 
-            Reestablecer();
         }
+
         private void btnArchivos_Click(object sender, EventArgs e)
         {
+            /*OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter="Imagenes|*.jpg;*.png";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            ofd.Title= "Seleccionar imagenes";*/
             //subir info ticket primero
             int my_user = Conf.oUsuario.id_user;
-            //MessageBox.Show(""+my_user);
             Ticket oTicket = new Ticket()
             {
                 id_prioridad = int.Parse(((ComboBoxItem)cboprioridad.SelectedItem).Value.ToString()),
                 id_estado = int.Parse(((ComboBoxItem)cboestado.SelectedItem).Value.ToString()),
                 id_categoria = int.Parse(((ComboBoxItem)cbo_categoria.SelectedItem).Value.ToString()),
-                id_user = Conf.oUsuario.id_user,
+                id_user = my_user,
+                //Clave = txtcontrasenia.Text,
                 titulo = txttitulo.Text,
                 descripcion = txtdescripcion.Text,
             };
             string id;
+
             int id_ticke = 0;
             bool respuesta = false;
+            string msgOk = "";
+            string msgError = "";
+
             id = D_Ticket.RegistrarTicket(oTicket);
             id_ticke = Convert.ToInt32(id);
+
+            MessageBox.Show(""+id_ticke);
+
             if (id!="")
             {
                 upload_files(id_ticke);
-                respuesta= true;
+                MessageBox.Show("se envio");
+
             }
-            else
-            {
-                respuesta=false;
-            }
+
         }
-        public int upload_files(int id_espeprado)
+        private int upload_files(int id_espeprado)
         {
             //int id_espeprado = Convert.ToInt32(txtid_ticket_last.Text);
+            bool respuesta = false;
             bool respuesta_archivo = false;
+            string msgOk = "";
+            string msgError = "";
 
             //respuesta = D_Ticket.RegistrarTicket(oTicket);
             string fecha = DateTime.Now.ToString("yyyyMMddHmss");
@@ -112,34 +128,32 @@ namespace helpdesk
             using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
             {
                 openFileDialog1.Filter = "Images (*.JPG;*.PNG)|";
+
                 // Allow the user to select multiple images.
                 openFileDialog1.Multiselect = true;
+
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     if (!Directory.Exists(saveDirectory))
                     {
                         Directory.CreateDirectory(saveDirectory);
                     }
+
                     string fileName = "";
                     string fileSavePath = "";
                     string extension;
-                    string justname="";
-                    string file_name = "";
                     foreach (String file in openFileDialog1.FileNames)
                     {
                         // dm.UploadFile(DMIDENTITY, file, Path.GetExtension(file), Path.GetFileName(file));
-                        //MessageBox.Show(file);
+                        MessageBox.Show(file);
                         fileName = Path.GetFileName(file);
+                        fileSavePath = Path.Combine(saveDirectory, fileName);
                         extension =Path.GetExtension(file);
-                        // get file name without extension
-                        justname = Path.GetFileNameWithoutExtension(fileName.ToString());
-                        file_name = justname+"-"+fecha+extension;
-                        fileSavePath = Path.Combine(saveDirectory, file_name);
-                        //MessageBox.Show(file_name);
+
                         // File.Copy(openFileDialog1.FileName, fileSavePath, true);
                         Archivo oArchivo = new Archivo()
                         {
-                            nombre = file_name,
+                            nombre = fileName,
                             direccion= fileSavePath,
                             id_ticket = id_espeprado
                         };
@@ -149,21 +163,28 @@ namespace helpdesk
                         if (respuesta_archivo)
                         {
                             File.Copy(openFileDialog1.FileName, fileSavePath, true);
-                           // MessageBox.Show(""+id_espeprado);
+                            MessageBox.Show(""+id_espeprado);
                         }
                     }
                 }
                 return id_espeprado;
             }
         }
-        private void Reestablecer()
+        private int get_last_id()
         {
-            txtdescripcion.Text = "";
-            txttitulo.Text = "";
-            cboestado.SelectedIndex = 0;
-            cboprioridad.SelectedIndex = 0;
-            cbo_categoria.SelectedIndex = 0;
+            SqlConnection con = Connection.openConnection();
+
+            SqlCommand com = new SqlCommand("SELECT id_ticket id_ticket_last FROM ticket WHERE id_ticket = (SELECT MAX(id_ticket) FROM ticket)", con);
+            
+            SqlDataAdapter adaptador = new SqlDataAdapter(com);
+            con.Open();
+            int modified = (int)com.ExecuteScalar();
+            int id_end = modified+1;
+            con.Close();
+
+            return id_end;
+
         }
-        //end
+            //end
     }
 }

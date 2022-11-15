@@ -72,5 +72,10 @@ namespace helpdesk
             textBox1.Focus();
             this.Show();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

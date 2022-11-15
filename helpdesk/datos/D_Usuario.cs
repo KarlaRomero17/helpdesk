@@ -129,14 +129,16 @@ namespace helpdesk.datos
                                 {
                                     id_user = int.Parse(dato.Element("id_user").Value),
                                     nombre = dato.Element("nombre").Value,
-                                    apellido = dato.Element("apellido").Value
+                                    apellido = dato.Element("apellido").Value,
+                                    oRol= new Rol() { id_rol = int.Parse(dato.Element("id_rol").Value) },
 
                                 }).FirstOrDefault();
                             rptUsuario.oRol = doc.Element("PERMISOS").Elements("DetalleRol") == null ? new Rol() : 
                                 (from dato in doc.Element("PERMISOS").Elements("DetalleRol")
                                 select new Rol()
                                 {
-                                    rol = dato.Element("rol").Value
+                                    rol = dato.Element("rol").Value,
+                                    id_rol = int.Parse(dato.Element("id_rol").Value)
                                 }).FirstOrDefault();
                         }
                         else
@@ -150,6 +152,43 @@ namespace helpdesk.datos
                 {
                     rptUsuario=null;
                     return rptUsuario;
+                }
+            }
+        }
+        public static List<User> Listar()
+        {
+            List<User> lista= new List<User>();
+            using (SqlConnection oConexion = new SqlConnection(Conexion.conn))
+            {
+                SqlCommand cmd = new SqlCommand("proc_lista_usuarios", oConexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    oConexion.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        lista.Add(new User()
+                        {
+                            id_user= Convert.ToInt32(dr["id_user"].ToString()),
+                            id_soporte= Convert.ToInt32(dr["id_user"].ToString()),
+                            nombre = dr["nombre"].ToString(),
+                            apellido = dr["apellido"].ToString(),
+                            nombre_completo = dr["nombre_completo"].ToString(),
+                            idRol = Convert.ToInt32(dr["id_rol"].ToString())
+
+                        });
+                    }
+                    dr.Close();
+
+                    return lista;
+
+                }
+                catch (Exception)
+                {
+                    lista = null;
+                    return lista;
                 }
             }
         }
