@@ -19,7 +19,7 @@ namespace helpdesk
     public partial class Dashboard : Form
     {
         private int idusuario;
-        public Dashboard(int id_usuario_esperado = 0)
+        public Dashboard(int id_usuario_esperado)
         {
             InitializeComponent();
             idusuario = id_usuario_esperado;

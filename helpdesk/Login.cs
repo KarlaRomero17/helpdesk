@@ -42,6 +42,7 @@ namespace helpdesk
                 MessageBox.Show("Usuario y/o contrase;a incorrecto ");
             }*/
             int id_usuario = D_Usuario.Loguear(textBox1.Text, textBox2.Text);
+             
             if(id_usuario != 0)
             {
 

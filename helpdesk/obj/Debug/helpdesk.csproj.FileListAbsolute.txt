@@ -47,3 +47,8 @@ C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.Prope
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.GenerateResource.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.csproj.CoreCompileInputs.cache
 C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmConsultarTicket.resources
+C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.FrmCrearUsuario.resources
+C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\helpdesk.exe.manifest
+C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\bin\Debug\helpdesk.application
+C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.exe.manifest
+C:\Users\kromero\source\repos\helpdesk_proyect\helpdesk\obj\Debug\helpdesk.application

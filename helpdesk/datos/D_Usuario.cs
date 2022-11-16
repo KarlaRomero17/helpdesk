@@ -173,6 +173,8 @@ namespace helpdesk.datos
                         {
                             id_user= Convert.ToInt32(dr["id_user"].ToString()),
                             id_soporte= Convert.ToInt32(dr["id_user"].ToString()),
+                            //oRol = new Rol() { Descripcion = dr["DescripcionRol"].ToString() },
+                            //idRol= Convert.ToInt32(dr["id_rol"].ToString()),
                             nombre = dr["nombre"].ToString(),
                             apellido = dr["apellido"].ToString(),
                             nombre_completo = dr["nombre_completo"].ToString(),
@@ -191,6 +193,102 @@ namespace helpdesk.datos
                     return lista;
                 }
             }
+        }
+        public static bool Registrar(User ouser)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.conn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("proc_registrar_usuario", oConexion);
+                    cmd.Parameters.AddWithValue("id_rol", ouser.oRol.id_rol);
+                    cmd.Parameters.AddWithValue("nombre", ouser.nombre);
+                    cmd.Parameters.AddWithValue("apellido", ouser.apellido);
+                    cmd.Parameters.AddWithValue("usuario", ouser.usuario);
+                    cmd.Parameters.AddWithValue("clave", ouser.usuario);
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+
+                }
+                catch (Exception)
+                {
+                    respuesta = false;
+                }
+
+            }
+
+            return respuesta;
+
+        }
+        public static bool Editar(User oUser)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.conn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("proc_editar_usuario", oConexion);
+                    cmd.Parameters.AddWithValue("id_user", oUser.id_user);
+                    cmd.Parameters.AddWithValue("id_rol", oUser.oRol.id_rol);
+                    cmd.Parameters.AddWithValue("nombre", oUser.nombre);
+                    cmd.Parameters.AddWithValue("apellido", oUser.apellido);
+                    cmd.Parameters.AddWithValue("usuario", oUser.usuario);
+                    cmd.Parameters.AddWithValue("clave", oUser.apellido);
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+
+                }
+                catch (Exception)
+                {
+                    respuesta = false;
+                }
+
+            }
+
+            return respuesta;
+
+        }
+        public static bool Eliminar(int id_user)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.conn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("proc_eliminar_usuario", oConexion);
+                    cmd.Parameters.AddWithValue("id_user", id_user);
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+
+                }
+                catch (Exception)
+                {
+                    respuesta = false;
+                }
+
+            }
+
+            return respuesta;
+
         }
     }
 }
